@@ -62,7 +62,7 @@ It's not a product and isn't maintained as one. Use it in sandboxes and scratch 
 
 ## Permission sets
 
-Neither permission set requires a particular profile. Both assume a **Salesforce** user license.
+Each permission set is complete on its own. It works for a user on the **Minimum Access - Salesforce** profile, so neither one relies on extra permissions from a profile. Both assume a **Salesforce** user license.
 
 ### `Vendor_Onboarding_User`: requesters (least privilege)
 
@@ -72,9 +72,9 @@ Neither permission set requires a particular profile. Both assume a **Salesforce
 | Editable fields | Vendor Contact Email, Category, Estimated Annual Spend, Business Justification (and Vendor Name, which is required and so always editable) |
 | Read-only fields | Status, W-9 Received, Insurance Expiry Date, Requester, Approver, Rejection Reason |
 | App / tab | Vendor Onboarding app and tab |
-| Flow | `New_Vendor_Request` |
+| Flow | `New_Vendor_Request`. The flow is set to *restrict access to enabled profiles or permission sets* (`isAdditionalPermissionRequiredToRun`), so this grant is what lets users run it. The org-wide "Run Flows" permission isn't needed and doesn't grant access. |
 | Apex | `VendorDuplicateChecker` (needed by the flow) |
-| System permissions | None |
+| System permissions | Lightning Experience User only |
 
 The flow runs in *system mode with sharing*. That lets it set Requester and Status, which requesters can't edit themselves, while still respecting record visibility. `VendorDuplicateChecker` runs `without sharing` so it can find duplicates raised by other people. It only returns request numbers and statuses, never the other records' contents.
 
@@ -87,7 +87,7 @@ Everything in the User set, plus:
 | Object | Full CRUD, View All, Modify All |
 | Fields | Read and Edit on all fields |
 | Apex | Both classes |
-| System permissions | View Setup and Configuration, Customize Application, Manage Flow, Author Apex, Modify Metadata Through Metadata API Functions, API Enabled, View Roles and Role Hierarchy, Manage Custom Permissions, Manage Translation (the last three are Salesforce-enforced dependencies of Author Apex and Customize Application) |
+| System permissions | View Setup and Configuration, Customize Application, Manage Flow, Author Apex, Modify Metadata Through Metadata API Functions, API Enabled, Lightning Experience User, View Roles and Role Hierarchy, Manage Custom Permissions, Manage Translation (the last three are Salesforce-enforced dependencies of Author Apex and Customize Application) |
 
 > **Note on least privilege:** Salesforce can't limit Setup permissions to one app. Customize Application, Manage Flow and Author Apex apply to the **whole org**. This set is meant for sandboxes and demos. In production, a customer would decide how far to trust human admins. Many give these permissions only to a CI/DevOps integration user.
 
@@ -113,4 +113,4 @@ sf data import tree --files data/sample-vendors.json --target-org vendor-demo
 sf org open --target-org vendor-demo --path lightning/o/Vendor_Onboarding__c/list
 ```
 
-To try the requester experience, create or choose a Standard User and assign `Vendor_Onboarding_User`.
+To try the requester experience, create a user on the **Minimum Access - Salesforce** profile and assign `Vendor_Onboarding_User`. Requesters don't get API access, so to open the org as that user with `sf org open`, also give them a separate test-only permission set with API Enabled. Don't add it to `Vendor_Onboarding_User`.

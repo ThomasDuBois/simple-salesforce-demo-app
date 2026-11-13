@@ -104,6 +104,7 @@
     </dynamicChoiceSets>
     <environments>Default</environments>
     <interviewLabel>New Vendor Request {!$Flow.CurrentDateTime}</interviewLabel>
+    <isAdditionalPermissionRequiredToRun>true</isAdditionalPermissionRequiredToRun>
     <label>New Vendor Request</label>
     <processMetadataValues>
         <name>BuilderType</name>
