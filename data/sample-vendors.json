@@ -1,0 +1,85 @@
+{
+  "records": [
+    {
+      "attributes": {
+        "type": "Vendor_Onboarding__c",
+        "referenceId": "VendorRef1"
+      },
+      "Vendor_Name__c": "Northwind Office Supply",
+      "Vendor_Contact_Email__c": "orders@northwind.example.com",
+      "Category__c": "Hardware",
+      "Estimated_Annual_Spend__c": 12000,
+      "Business_Justification__c": "Replacement desks and chairs for the 3rd floor.",
+      "Status__c": "Submitted",
+      "W9_Received__c": false
+    },
+    {
+      "attributes": {
+        "type": "Vendor_Onboarding__c",
+        "referenceId": "VendorRef2"
+      },
+      "Vendor_Name__c": "Contoso Cloud Backup",
+      "Vendor_Contact_Email__c": "sales@contoso.example.com",
+      "Category__c": "Software",
+      "Estimated_Annual_Spend__c": 48000,
+      "Business_Justification__c": "Offsite backup for engineering file servers.",
+      "Status__c": "Under Review",
+      "W9_Received__c": false
+    },
+    {
+      "attributes": {
+        "type": "Vendor_Onboarding__c",
+        "referenceId": "VendorRef3"
+      },
+      "Vendor_Name__c": "Fabrikam Facilities Group",
+      "Vendor_Contact_Email__c": "ar@fabrikam.example.com",
+      "Category__c": "Facilities",
+      "Estimated_Annual_Spend__c": 30000,
+      "Business_Justification__c": "Weekly cleaning contract for the new office.",
+      "Status__c": "Documents Requested",
+      "W9_Received__c": true
+    },
+    {
+      "attributes": {
+        "type": "Vendor_Onboarding__c",
+        "referenceId": "VendorRef4"
+      },
+      "Vendor_Name__c": "Tailspin Marketing Studio",
+      "Vendor_Contact_Email__c": "hello@tailspin.example.com",
+      "Category__c": "Marketing",
+      "Estimated_Annual_Spend__c": 75000,
+      "Business_Justification__c": "Agency support for the spring product launch.",
+      "Status__c": "Finance Approval",
+      "W9_Received__c": true,
+      "Insurance_Expiry_Date__c": "2030-06-30"
+    },
+    {
+      "attributes": {
+        "type": "Vendor_Onboarding__c",
+        "referenceId": "VendorRef5"
+      },
+      "Vendor_Name__c": "Litware Consulting",
+      "Vendor_Contact_Email__c": "billing@litware.example.com",
+      "Category__c": "Professional Services",
+      "Estimated_Annual_Spend__c": 120000,
+      "Business_Justification__c": "Salesforce implementation partner for Phase 2.",
+      "Status__c": "Approved",
+      "W9_Received__c": true,
+      "Insurance_Expiry_Date__c": "2030-12-31"
+    },
+    {
+      "attributes": {
+        "type": "Vendor_Onboarding__c",
+        "referenceId": "VendorRef6"
+      },
+      "Vendor_Name__c": "Adventure Works Print",
+      "Vendor_Contact_Email__c": "print@adventureworks.example.com",
+      "Category__c": "Marketing",
+      "Estimated_Annual_Spend__c": 5000,
+      "Business_Justification__c": "Trade show banners.",
+      "Status__c": "Rejected",
+      "W9_Received__c": false,
+      "Rejection_Reason__c": "Already covered by our existing print vendor contract."
+    }
+  ]
+}

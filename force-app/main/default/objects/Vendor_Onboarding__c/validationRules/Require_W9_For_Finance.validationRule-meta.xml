@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Require_W9_For_Finance</fullName>
+    <active>true</active>
+    <description>A W-9 must be on file before Finance sees the request.</description>
+    <errorConditionFormula>AND(
+    OR(ISPICKVAL(Status__c, &quot;Finance Approval&quot;), ISPICKVAL(Status__c, &quot;Approved&quot;)),
+    NOT(W9_Received__c)
+)</errorConditionFormula>
+    <errorDisplayField>W9_Received__c</errorDisplayField>
+    <errorMessage>Mark the W-9 as received before sending this request to Finance Approval.</errorMessage>
+</ValidationRule>

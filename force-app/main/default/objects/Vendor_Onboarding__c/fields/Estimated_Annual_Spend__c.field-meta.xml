@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Estimated_Annual_Spend__c</fullName>
+    <description>Requester&apos;s estimate of yearly spend with this vendor.</description>
+    <externalId>false</externalId>
+    <label>Estimated Annual Spend</label>
+    <precision>14</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackHistory>true</trackHistory>
+    <type>Currency</type>
+</CustomField>

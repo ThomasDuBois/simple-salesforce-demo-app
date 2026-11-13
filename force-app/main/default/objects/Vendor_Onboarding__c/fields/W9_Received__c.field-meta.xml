@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>W9_Received__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Vendor has returned a completed W-9. Required before Finance Approval.</description>
+    <externalId>false</externalId>
+    <label>W-9 Received</label>
+    <trackHistory>true</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

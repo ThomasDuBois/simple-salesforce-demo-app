@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>No_Skipping_Steps</fullName>
+    <active>true</active>
+    <description>Open requests may only move forward one stage at a time (moving back or to Rejected is always allowed).</description>
+    <errorConditionFormula>AND(
+    ISCHANGED(Status__c),
+    NOT(ISPICKVAL(Status__c, &quot;Rejected&quot;)),
+    CASE(Status__c,
+        &quot;Submitted&quot;, 1, &quot;Under Review&quot;, 2, &quot;Documents Requested&quot;, 3,
+        &quot;Finance Approval&quot;, 4, &quot;Approved&quot;, 5, 0)
+    &gt;
+    CASE(TEXT(PRIORVALUE(Status__c)),
+        &quot;Submitted&quot;, 1, &quot;Under Review&quot;, 2, &quot;Documents Requested&quot;, 3,
+        &quot;Finance Approval&quot;, 4, &quot;Approved&quot;, 5, 0) + 1
+)</errorConditionFormula>
+    <errorDisplayField>Status__c</errorDisplayField>
+    <errorMessage>Requests move one stage at a time: Submitted, Under Review, Documents Requested, Finance Approval, Approved.</errorMessage>
+</ValidationRule>

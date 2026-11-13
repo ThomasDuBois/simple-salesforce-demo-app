@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PathAssistant xmlns="http://soap.sforce.com/2006/04/metadata">
+    <active>true</active>
+    <entityName>Vendor_Onboarding__c</entityName>
+    <fieldName>Status__c</fieldName>
+    <masterLabel>Vendor Onboarding Path</masterLabel>
+    <pathAssistantSteps>
+        <fieldNames>Vendor_Name__c</fieldNames>
+        <fieldNames>Category__c</fieldNames>
+        <fieldNames>Estimated_Annual_Spend__c</fieldNames>
+        <info>&lt;p&gt;New request from the requester. Procurement: check the business justification and that this vendor isn&apos;t already approved.&lt;/p&gt;</info>
+        <picklistValueName>Submitted</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <fieldNames>Business_Justification__c</fieldNames>
+        <fieldNames>Vendor_Contact_Email__c</fieldNames>
+        <info>&lt;p&gt;Procurement is reviewing the request. Confirm the vendor contact email so documents can be requested.&lt;/p&gt;</info>
+        <picklistValueName>Under Review</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <fieldNames>W9_Received__c</fieldNames>
+        <fieldNames>Insurance_Expiry_Date__c</fieldNames>
+        <info>&lt;p&gt;Waiting on the vendor for a signed &lt;b&gt;W-9&lt;/b&gt; and a &lt;b&gt;certificate of insurance&lt;/b&gt;. Both are required before approval.&lt;/p&gt;</info>
+        <picklistValueName>Documents Requested</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <fieldNames>Approver__c</fieldNames>
+        <fieldNames>Estimated_Annual_Spend__c</fieldNames>
+        <info>&lt;p&gt;Finance reviews spend and approves or rejects. Insurance must not be expired to approve.&lt;/p&gt;</info>
+        <picklistValueName>Finance Approval</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <fieldNames>Approver__c</fieldNames>
+        <fieldNames>Insurance_Expiry_Date__c</fieldNames>
+        <info>&lt;p&gt;Vendor is approved and can be set up in the payables system.&lt;/p&gt;</info>
+        <picklistValueName>Approved</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <fieldNames>Rejection_Reason__c</fieldNames>
+        <info>&lt;p&gt;Request closed. A reason is required.&lt;/p&gt;</info>
+        <picklistValueName>Rejected</picklistValueName>
+    </pathAssistantSteps>
+    <recordTypeName>__MASTER__</recordTypeName>
+</PathAssistant>

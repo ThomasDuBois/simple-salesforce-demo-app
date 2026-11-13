@@ -1,0 +1,19 @@
+# Salesforce CLI
+.sf/
+.sfdx/
+.localdevserver/
+deploy-options.json
+
+# Tooling / OS
+node_modules/
+.vscode/
+.idea/
+*.log
+.DS_Store
+
+# Local downloads
+*.tar
+*.tar.gz
+
+# Test output
+coverage/

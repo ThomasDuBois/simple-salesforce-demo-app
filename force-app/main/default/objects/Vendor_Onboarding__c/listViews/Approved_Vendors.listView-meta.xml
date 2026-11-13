@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Approved_Vendors</fullName>
+    <columns>NAME</columns>
+    <columns>Vendor_Name__c</columns>
+    <columns>Category__c</columns>
+    <columns>Vendor_Contact_Email__c</columns>
+    <columns>Insurance_Expiry_Date__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Status__c</field>
+        <operation>equals</operation>
+        <value>Approved</value>
+    </filters>
+    <label>Approved Vendors</label>
+</ListView>
