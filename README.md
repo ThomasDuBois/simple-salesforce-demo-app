@@ -113,4 +113,15 @@ sf data import tree --files data/sample-vendors.json --target-org vendor-demo
 sf org open --target-org vendor-demo --path lightning/o/Vendor_Onboarding__c/list
 ```
 
+### Manifest (package.xml)
+
+`manifest/package.xml` lists every component in `force-app`, for DevOps tools and change-set style deployments that expect a manifest:
+
+```bash
+sf project deploy start --manifest manifest/package.xml --target-org vendor-demo --test-level RunSpecifiedTests --tests VendorDuplicateCheckerTest
+
+# Regenerate after adding or removing metadata
+sf project generate manifest --source-dir force-app --output-dir manifest --name package.xml
+```
+
 To try the requester experience, create a user on the **Minimum Access - Salesforce** profile and assign `Vendor_Onboarding_User`. Requesters don't get API access, so to open the org as that user with `sf org open`, also give them a separate test-only permission set with API Enabled. Don't add it to `Vendor_Onboarding_User`.
