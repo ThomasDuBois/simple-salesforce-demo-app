@@ -87,9 +87,11 @@ Everything in the User set, plus:
 | Object | Full CRUD, View All, Modify All |
 | Fields | Read and Edit on all fields |
 | Apex | Both classes |
-| System permissions | View Setup and Configuration, Customize Application, Manage Flow, Author Apex, Modify Metadata Through Metadata API Functions, API Enabled, Lightning Experience User, View Roles and Role Hierarchy, Manage Custom Permissions, Manage Translation (the last three are Salesforce-enforced dependencies of Author Apex and Customize Application) |
+| System permissions | View Setup and Configuration, View Roles and Role Hierarchy (a Salesforce-enforced dependency of View Setup), Manage Flow, Lightning Experience User |
 
-> **Note on least privilege:** Salesforce can't limit Setup permissions to one app. Customize Application, Manage Flow and Author Apex apply to the **whole org**. This set is meant for sandboxes and demos. In production, a customer would decide how far to trust human admins. Many give these permissions only to a CI/DevOps integration user.
+> **Note on least privilege:** Salesforce can't limit Setup permissions to one app. Manage Flow applies to the **whole org**. This set is meant for sandboxes and demos. In production, a customer would decide how far to trust human admins. Many give Setup permissions only to a CI/DevOps integration user.
+
+> **Note on portability:** This set deliberately leaves out Customize Application, Author Apex, Modify Metadata and API Enabled. Which permissions exist, and which ones Salesforce requires together, varies by org. For example, in orgs with Translation Workbench turned on, Customize Application also requires Manage Translation, and that permission doesn't exist in orgs without it. Granting those permissions through a set would stop it deploying to some orgs. Admins who need to change fields, layouts or validation rules should get Customize Application from their profile or an org-specific permission set.
 
 ## Deploying
 
